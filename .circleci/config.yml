@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/base:stable  # A basic CircleCI image; you can choose another image if needed
+    steps:
+      - checkout                   # Check out your repository from GitHub
+      - run:
+          name: Display HTML Content
+          command: cat index.html  # Output the contents of the HTML file to the build log
+
+workflows:
+  version: 2
+  build_and_display:
+    jobs:
+      - build
